@@ -1,6 +1,6 @@
 
-export function History(){
-    return(
+export function History() {
+    return (
         <div>
             teste
         </div>
