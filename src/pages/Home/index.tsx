@@ -1,5 +1,5 @@
-import{ Play }from 'phosphor-react'
-import { CountdownContainer, FormContainer, HomeContainer, Separator, StarCoutdownButton , TaskInput, MinutesAmountInput} from './stlyes'
+import { Play } from 'phosphor-react'
+import { CountdownContainer, FormContainer, HomeContainer, Separator, StarCoutdownButton, TaskInput, MinutesAmountInput } from './stlyes'
 
 export function Home() {
     return (
@@ -7,13 +7,31 @@ export function Home() {
             <form action="">
                 <FormContainer>
                     <label htmlFor="task">Vou trabalhar em</label>
-                    <TaskInput type="text" id="task" placeholder='Dê um nome para o seu projeto' />
+                    <TaskInput
+                        id='task'
+                        list='task-suggestions'
+                        type="text"
+                        placeholder='Dê um nome para o seu projeto'
+                    />
+
+                    <datalist id="task-suggestions">
+                        <option value="Projeto 1" />
+                        <option value="Atividade" />
+                        <option value="Exercicios" />
+                        <option value="Chocolate" />
+                    </datalist>
 
                     <label htmlFor="minutesAmount">Durante</label>
-                    <MinutesAmountInput 
+                    <MinutesAmountInput
                         type='number'
                         id="minutesAmount"
-                        placeholder='00'/>
+                        placeholder='00' 
+                        step={5}
+                        min={5}
+                        max={60}
+                        />
+                        
+
 
 
                     <span>minutos.</span>
@@ -28,12 +46,12 @@ export function Home() {
                     <span>0</span>
                 </CountdownContainer>
 
-                <StarCoutdownButton 
+                <StarCoutdownButton
                     type="submit"
                     disabled
                 >
-                    <Play/>
-                     começar
+                    <Play size={24} />
+                    começar
                 </StarCoutdownButton>
 
             </form>
