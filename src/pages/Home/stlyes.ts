@@ -21,7 +21,7 @@ export const FormContainer = styled.div`
     align-items:center;
     justify-content:center;
     gap: 0.5rem;
-    color: ${(props)=> props.theme['gray-100']}
+    color: ${(props) => props.theme['gray-100']}
     font-size: 1.125rem;
     font-weight:bold;
     flex-wrap:wrap;
@@ -53,7 +53,7 @@ export const Separator = styled.div`
     justify-content: center;
 `
 
-export const StarCoutdownButton = styled.button`
+export const BaseCoutdownButton = styled.button`
     width: 100%;
     border: 0;
     padding: 1rem;
@@ -67,7 +67,6 @@ export const StarCoutdownButton = styled.button`
 
     cursor: pointer;
 
-    background: ${(props) => props.theme['green-500'] };
     color: ${(props) => props.theme['gray-100']};
 
     &:disabled{
@@ -75,9 +74,24 @@ export const StarCoutdownButton = styled.button`
         cursor:not-allowed;
     };
 
-    &:not(:disabled):hover{
-        background: ${(props)=> props.theme['green-700']};
+ 
+
+`
+
+export const StartCoutdownButton = styled(BaseCoutdownButton)`
+  background: ${(props) => props.theme['green-500']};
+
+  &:not(:disabled):hover{
+        background: ${(props) => props.theme['green-700']};
     };
+
+`
+export const StopCoutdownButton = styled(BaseCoutdownButton)`
+    background: ${(props) => props.theme['red-500']};
+
+&:not(:disabled):hover{
+      background: ${(props) => props.theme['red-700']};
+  };
 
 `
 const BaseInput = styled.input`
@@ -88,15 +102,15 @@ const BaseInput = styled.input`
 
     font-size:1.125rem;
     padding:0 0.5rem;
-    color:${(props)=> props.theme['gray-100'] };
+    color:${(props) => props.theme['gray-100']};
 
     &:focus{
         box-shadow:none;
-        border-color:${(props)=> props.theme['green-500' ] } ;
+        border-color:${(props) => props.theme['green-500']} ;
     }
 
     &::placeholder{
-        color:${(props)=> props.theme['gray-100'] };
+        color:${(props) => props.theme['gray-100']};
     }
 `
 
