@@ -73,9 +73,6 @@ export const BaseCoutdownButton = styled.button`
         opacity: 0.7;
         cursor:not-allowed;
     };
-
- 
-
 `
 
 export const StartCoutdownButton = styled(BaseCoutdownButton)`
