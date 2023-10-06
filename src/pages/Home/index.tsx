@@ -21,6 +21,7 @@ interface Cycle {
     task: string;
     minutesAmount: number;
     startDate: Date;
+    interruptedDate?: Date;
 }
 
 
@@ -68,7 +69,17 @@ export function Home() {
         reset()
     }
 
+    function handleInterruptCycle(data: NewCycleFormData){
+        setActiveCycleId(null)
 
+        setCycles(cycles.map(cycle => {
+            if(cycle.id === activeCycle){
+                return{...cycle, interruptedDate: new Date()}
+            }else{
+                return cycle
+            }
+        }))
+    }
 
     const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
     const currentSeconds = activeCycle ? totalSeconds - amountSetcondsPassed : 0
@@ -98,6 +109,7 @@ export function Home() {
                         list='task-suggestions'
                         type="text"
                         placeholder='Dê um nome para o seu projeto'
+                        disabled={!!activeCycle}
                         {...register('task')}
                     />
 
@@ -116,6 +128,7 @@ export function Home() {
                         step={5}
                         min={5}
                         max={60}
+                        disabled={!!activeCycle}
                         {...register('minutesAmount', { valueAsNumber: true })}
                     />
 
